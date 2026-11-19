@@ -57,3 +57,4 @@ jobs:
     - name: check installation
       run: make -f scripts/liquid_linker_test.mk
 
+# BFP baseline registration bfp-register-liquid-273e350f
