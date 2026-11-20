@@ -12,7 +12,7 @@ jobs:
       matrix:
         runs-on: [ubuntu-latest, macos-latest]
 
-    name: "💦 ${{ matrix.runs-on }}"
+    name: "馃挦 ${{ matrix.runs-on }}"
     runs-on: ${{ matrix.runs-on }}
 
     steps:
@@ -22,7 +22,7 @@ jobs:
       if: runner.os == 'macos'
       run: |
         brew update
-        brew install cmake
+        brew install --overwrite cmake
 
     - name: setup (linux)
       if: runner.os == 'Linux'
@@ -56,4 +56,3 @@ jobs:
 
     - name: check installation
       run: make -f scripts/liquid_linker_test.mk
-
