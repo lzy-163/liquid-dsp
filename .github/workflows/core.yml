@@ -12,7 +12,7 @@ jobs:
       matrix:
         runs-on: [ubuntu-latest, macos-latest]
 
-    name: "💦 ${{ matrix.runs-on }}"
+    name: "馃挦 ${{ matrix.runs-on }}"
     runs-on: ${{ matrix.runs-on }}
 
     steps:
@@ -55,5 +55,8 @@ jobs:
       run: sudo ldconfig
 
     - name: check installation
-      run: make -f scripts/liquid_linker_test.mk
-
+      run: |
+        if [ "$RUNNER_OS" = "macOS" ]; then
+          export DYLD_LIBRARY_PATH="/usr/local/lib${DYLD_LIBRARY_PATH:+:$DYLD_LIBRARY_PATH}"
+        fi
+        make -f scripts/liquid_linker_test.mk
